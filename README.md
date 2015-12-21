@@ -18,7 +18,7 @@ See the included `configure.sample.json` file for a sample configuration. The
 included `php-configure` command takes a single parameter, which indicates the
 configuration json file. For example:
 
-    > php-configure configure.json
+    > php-configure configure configure.json
 
 The configuration may include the following settings:
 
