@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+for ($i = 0; $i < 4; $i++) {
+    $autoload = __DIR__ . str_repeat('/..', $i) . '/vendor/autoload.php';
+
+    if (file_exists($autoload)) {
+        require $autoload;
+        break;
+    }
+}
+
+if ($i > 3) {
+    fputs(STDERR, 'No composer autoloader available');
+    exit(1);
+}
+
+$console = new \Symfony\Component\Console\Application();
+$console->add(new \Riimu\PhpConfigure\ConfigureCommand());
+exit($console->run());

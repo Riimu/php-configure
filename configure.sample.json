@@ -1,0 +1,18 @@
+{
+  "paths" : [
+    "d:\\php\\[57].[0-9]"
+  ],
+
+  "base": [
+    "php.ini-development"
+  ],
+
+  "settings": {
+    "extension_dir": "\"{PATH}\\ext\"",
+    "date.timezone": "\"Europe/Helsinki\""
+  },
+
+  "extensions": [
+    "php_gd2.dll"
+  ]
+}
