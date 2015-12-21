@@ -10,7 +10,7 @@ multiple different php.ini files in different PHP installation paths.
 To install this library globally via [Composer](https://getcomposer.org), simply
 run the following command
 
-    > composer --global require riimu/php-configure:1.*
+    > composer global require riimu/php-configure:1.*
 
 ## Configuration ##
 

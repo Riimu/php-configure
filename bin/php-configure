@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-for ($i = 0; $i < 4; $i++) {
+for ($i = 0; $i < 5; $i++) {
     $autoload = __DIR__ . str_repeat('/..', $i) . '/vendor/autoload.php';
 
     if (file_exists($autoload)) {
@@ -10,7 +10,7 @@ for ($i = 0; $i < 4; $i++) {
     }
 }
 
-if ($i > 3) {
+if ($i > 4) {
     fputs(STDERR, 'No composer autoloader available');
     exit(1);
 }
