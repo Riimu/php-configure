@@ -138,7 +138,7 @@ class ConfigureCommand extends Command
 
         foreach ($this->extensions as $extension) {
             $pattern = sprintf(
-                "{$ws}extension{$ws}={$ws}%s{$ws}(?=\\r|\\n)",
+                "{$ws}extension{$ws}={$ws}%s{$ws}(;.*)?(?=[\\r\\n]|\$)",
                 preg_quote($extension, '/')
             );
 
