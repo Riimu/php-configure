@@ -138,7 +138,7 @@ class ConfigureCommand extends Command
 
         foreach ($this->extensions as $extension) {
             $pattern = sprintf(
-                "{$ws}extension{$ws}={$ws}%s{$ws}(;.*)?(?=[\\r\\n]|\$)",
+                "{$ws}extension{$ws}={$ws}((php_)?%s(\.(dll|so))?){$ws}(;.*)?(?=[\\r\\n]|\$)",
                 preg_quote($extension, '/')
             );
 
@@ -146,7 +146,7 @@ class ConfigureCommand extends Command
                 continue;
             }
 
-            $ini = preg_replace("/^;$pattern/im", "extension=$extension", $ini, 1, $count);
+            $ini = preg_replace("/^;$pattern/im", "extension=$1", $ini, 1, $count);
 
             if ($count > 0) {
                 $modified = true;
