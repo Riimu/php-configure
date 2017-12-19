@@ -1,20 +1,14 @@
 #!/usr/bin/env php
 <?php
 
-for ($i = 0; $i < 5; $i++) {
-    $autoload = __DIR__ . str_repeat('/..', $i) . '/vendor/autoload.php';
-
-    if (file_exists($autoload)) {
-        require $autoload;
-        break;
+(function () {
+    if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+      require_once __DIR__ . '/../vendor/autoload.php';
+    } else {
+      require_once __DIR__ . '/../../../../vendor/autoload.php';
     }
-}
 
-if ($i > 4) {
-    fputs(STDERR, 'No composer autoloader available');
-    exit(1);
-}
-
-$console = new \Symfony\Component\Console\Application();
-$console->add(new \Riimu\PhpConfigure\ConfigureCommand());
-exit($console->run());
+    $console = new \Symfony\Component\Console\Application();
+    $console->add(new \Riimu\PhpConfigure\ConfigureCommand());
+    exit($console->run());
+})();
